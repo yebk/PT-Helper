@@ -40,7 +40,7 @@ int main() { //here runs the program
 char to_be_or_not_to_be() { //asks the user if he wants to run the program
   char choice;
   char prog_name[] = "PT-helper";
-  char ver[] = "0.5";
+  char ver[] = "0.4";
   char creator[] = "noob-v2.0";
   while (true) {
     system("cls");
