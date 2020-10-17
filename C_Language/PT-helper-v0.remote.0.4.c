@@ -6,7 +6,7 @@
 #include <math.h>
 #include <windows.h>
 #include <conio.h>
-#include "\\Header_Files\\switch_commands.h"
+#include "switch_commands.h"
 
 //set_color_text. ##############################################################################################
 void set_color_text(const int k){ //sets the color of text
