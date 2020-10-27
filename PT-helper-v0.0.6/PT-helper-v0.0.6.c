@@ -1,44 +1,80 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
 #include <conio.h>
 #include <windows.h>
-// #include "Header_Files\\switch_commands.h"
+ #include "Header_Files\\switch_commands.h"
 #include "Header_Files\\text_color.h"
 
+// Calling The Functions
+void delay(float number_of_seconds);
+void print_PT_Helper_image();
 char to_be_or_not_to_be();
 char which_device();
 char device_switch_which();
 char device_switch_options();
 // char device_switch_interfaces();
 
-//##############################################################################################
-int main() { //here runs the program
-  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); //sets the color of text to bright green
-  char choice; //creates variable choice of type char
-  to_be_or_not_to_be(); //asks the user if he wants to run the program
-  choice = which_device();
-  if (choice == 's') {
-    choice = device_switch_options();
-    if (choice == '1') {
-      // choice = device_switch_interfaces();
-    }
-  }
-    else if (choice == 'r'){
-    // choice = device_router_junction();
-  }else{
-    printf("###ERROR###\n");
-    exit(1);
-  }
-  return(0);
-}
+//Declring Variables
+const char pt_helper_ascii_image[16][128]={"@@@@@@@   @@@@@@@             @@@  @@@  @@@@@@@@  @@@       @@@@@@@   @@@@@@@@  @@@@@@@","@@@@@@@@  @@@@@@@             @@@  @@@  @@@@@@@@  @@@       @@@@@@@@  @@@@@@@@  @@@@@@@@","@@!  @@@    @@!               @@!  @@@  @@!       @@!       @@!  @@@  @@!       @@!  @@@","!@!  @!@    !@!               !@!  @!@  !@!       !@!       !@!  @!@  !@!       !@!  @!@","@!@@!@!     @!!    @!@!@!@!@  @!@!@!@!  @!!!:!    @!!       @!@@!@!   @!!!:!    @!@!!@!","!!@!!!      !!!    !!!@!@!!!  !!!@!!!!  !!!!!:    !!!       !!@!!!    !!!!!:    !!@!@!","!!:         !!:               !!:  !!!  !!:       !!:       !!:       !!:       !!: :!!",":!:         :!:               :!:  !:!  :!:        :!:      :!:       :!:       :!:  !:!",":!:         :!:               :!:  !:!  :!:        :!:      :!:       :!:       :!:  !:!"," ::          ::               ::   :::   :: ::::   :: ::::   ::        :: ::::  ::   :::"," :           :                 :   : :  : :: ::   : :: : :   :        : :: ::    :   : :"};
+char choice; //creates variable choice of type char
 
 //##############################################################################################
+int main() { //here runs the program
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    print_PT_Helper_image();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10); //sets the color of text to bright green
+    to_be_or_not_to_be(); //asks the user if he wants to run the program
+    choice = which_device();
+    if (choice == 's') {
+        choice = device_switch_options();
+        if (choice == '1') { // choice = device_switch_interfaces();
+
+        }
+    }
+    else if (choice == 'r'){ // choice = device_router_junction();
+    }else{
+        printf("###ERROR###\n");
+        exit(1);
+    }
+    return(0);
+}
+//##############################################################################################
+void delay(float number_of_seconds) { // delays the process
+    // Converting time into milli_seconds
+    float milli_seconds = 1000 * number_of_seconds;
+
+    // Storing start time
+    clock_t start_time = clock();
+
+    // looping till required time is not achieved
+    while (clock() < start_time + milli_seconds)
+        ;
+}
+//##############################################################################################
+void print_PT_Helper_image() { //prints the pt-helper ascii image
+    char pth;
+    int k=1;
+    for (size_t i = 0; i < 11; i++) {
+
+        for (size_t j = 0; j < 92; j++) {
+            if (k==16) {k=1;}
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), k);
+            k ++;
+            pth = pt_helper_ascii_image[i][j];
+            delay(0.001);
+            printf("%c",pth );
+        }
+        printf("\n");
+    }
+    delay(1.75);
+}
+//##############################################################################################
 char to_be_or_not_to_be() { //asks the user if he wants to run the program
-  char choice;
   char prog_name[] = "PT-helper";
   char ver[] = "0.6";
   char creator[] = "noob-v2.0";
@@ -74,12 +110,10 @@ char to_be_or_not_to_be() { //asks the user if he wants to run the program
       exit(0);
     }
   }
-
   return(choice);
 }
 //##############################################################################################
 char which_device() {
-  char choice;
   while (true) { // RUNS FOR EVER!!!          not really...
     system("cls");
     for (int i = 0;i < 40;i++) {
@@ -116,7 +150,6 @@ char which_device() {
 }
 //##############################################################################################
 char device_switch_which(){
-  char choice = '$';
   while (true) {
     system("cls");
     for (int i = 0;i < 40;i++) {
@@ -156,7 +189,6 @@ char device_switch_which(){
 }
 //##############################################################################################
 char device_switch_options(){
-  char choice = '$';
   while (true) {
     system("cls");
     for (int i = 0;i < 40;i++) {
@@ -229,7 +261,6 @@ char device_switch_options(){
 }
 //##############################################################################################
 // char device_switch_interfaces(){
-//   char choice[5];
 //   int number_of_interfaces;
 //   while (true) {
 //     system("cls");
