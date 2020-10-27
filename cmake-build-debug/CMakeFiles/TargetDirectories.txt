@@ -1,3 +1,0 @@
-E:/programs_i_made/PACKET_TRACER_HELPER/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/programs_i_made/PACKET_TRACER_HELPER/cmake-build-debug/CMakeFiles/PACKET_TRACER_HELPER.dir
-E:/programs_i_made/PACKET_TRACER_HELPER/cmake-build-debug/CMakeFiles/rebuild_cache.dir
