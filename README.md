@@ -9,3 +9,5 @@ at the first release the program will create a txt file with commands that you c
 
 you'll copy the entire txt file to the router/switch's CLI, 
 and you done configuring the device.
+
+I just started learning C and so don't judge
